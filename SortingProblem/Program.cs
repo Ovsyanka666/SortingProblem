@@ -36,7 +36,7 @@
             {
                 sorteddesc = SortArrayDesc(array);
                 sortedasc = SortArrayAsc(array);
-            }
+            }//метод, вызывающий следующие два метода
 
             static int[] SortArrayDesc(int[] array)
             {
@@ -53,7 +53,7 @@
                     }
                 }
                 return array;
-            }
+            } //метод, сортирующий по убыванию
 
             static int[] SortArrayAsc(int[] array)
             {
@@ -70,7 +70,7 @@
                     }
                 }
                 return array;
-            }
+            } //метод, сортирующий по возрастанию
             
         }
     }
