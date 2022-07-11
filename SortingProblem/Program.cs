@@ -23,13 +23,10 @@
             
             SortArray(ArrayForSort, out int[] ArrayDown, out int[] ArrayUp); //вызываем метод, который сортирует и по убыванию, и по возрастанию
 
-            ShowArray(ArrayDown); //выводим оба отсортированных массива в консоль
+            ShowArray(ArrayDown);
             ShowArray(ArrayUp);
                         
-            ArrayDown = SortArrayDesc(ArrayForSort); //вызываем методы отдельно, всё работает как надо
-            ShowArray(ArrayDown);
-            ArrayUp = SortArrayAsc(ArrayForSort); 
-            ShowArray(ArrayUp);
+          
 
 
             static void SortArray(in int[] array, out int[] sorteddesc, out int[] sortedasc)
@@ -40,36 +37,44 @@
 
             static int[] SortArrayDesc(int[] array)
             {
-                foreach (int el in array)
+                int[] arrayDesk = new int[array.Length];
+                for (int i = 0; i < array.Length; i++)
+                    arrayDesk[i] = array[i];
+
+                foreach (int el in arrayDesk)
                 {
-                    for (byte i = 0; i < array.Length - 1; i++)
+                    for (byte i = 0; i < arrayDesk.Length - 1; i++)
                     {
-                        if (array[i] < array[i + 1])
+                        if (arrayDesk[i] < arrayDesk[i + 1])
                         {
-                            int temp = array[i];
-                            array[i] = array[i + 1];
-                            array[i + 1] = temp;
+                            int temp = arrayDesk[i];
+                            arrayDesk[i] = arrayDesk[i + 1];
+                            arrayDesk[i + 1] = temp;
                         }
                     }
                 }
-                return array;
+                return arrayDesk;
             } //метод, сортирующий по убыванию
 
             static int[] SortArrayAsc(int[] array)
             {
-                foreach (int el in array)
+                int[] arrayAsk = new int[array.Length];
+                for (int i = 0; i < array.Length; i++)
+                    arrayAsk[i] = array[i];
+
+                foreach (int el in arrayAsk)
                 {
-                    for (byte i = 0; i < array.Length - 1; i++)
+                    for (byte i = 0; i < arrayAsk.Length - 1; i++)
                     {
-                        if (array[i] > array[i + 1])
+                        if (arrayAsk[i] > arrayAsk[i + 1])
                         {
-                            int temp1 = array[i];
-                            array[i] = array[i + 1];
-                            array[i + 1] = temp1;
+                            int temp1 = arrayAsk[i];
+                            arrayAsk[i] = arrayAsk[i + 1];
+                            arrayAsk[i + 1] = temp1;
                         }
                     }
                 }
-                return array;
+                return arrayAsk;
             } //метод, сортирующий по возрастанию
             
         }
